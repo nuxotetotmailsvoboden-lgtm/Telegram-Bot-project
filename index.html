@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Шапка -->
   <div class="header">
     <div class="logo">Bot<span>Maker</span></div>
     <div class="header-actions">
@@ -36,10 +35,15 @@
         <div class="label">Портфолио</div>
         <div class="desc">Наши работы и кейсы</div>
       </div>
+      <div class="card" onclick="navigateTo('constructor')">
+        <span class="emoji">🛠️</span>
+        <div class="label">Конструктор бота</div>
+        <div class="desc">Соберите бота под свои задачи</div>
+      </div>
       <div class="card" onclick="navigateTo('reviews')">
         <span class="emoji">⭐</span>
         <div class="label">Отзывы клиентов</div>
-        <div class="desc">Реальные отзывы</div>
+        <div class="desc">Реальные отзывы и результаты</div>
       </div>
       <div class="card" onclick="navigateTo('bots')">
         <span class="emoji">🤖</span>
@@ -53,7 +57,6 @@
       </div>
     </div>
 
-    <!-- 3D РОБОТ -->
     <div id="robotContainer"></div>
 
     <div class="stats">
@@ -64,7 +67,7 @@
     </div>
   </div>
 
-  <!-- БОТЫ -->
+  <!-- БОТЫ (список + демо) -->
   <div id="page-bots" class="page">
     <div id="botsList">
       <h2 style="margin-bottom:16px;">🤖 Выберите бота для демо</h2>
@@ -78,60 +81,100 @@
     </div>
   </div>
 
-  <!-- ПОРТФОЛИО -->
+  <!-- КОНСТРУКТОР -->
+  <div id="page-constructor" class="page">
+    <h2 style="margin-bottom:16px;">🛠️ Конструктор бота</h2>
+    <p style="opacity:0.7; margin-bottom:20px;">Выберите параметры и получите расчёт стоимости</p>
+    <div class="constructor-block">
+      <div class="constructor-item">
+        <label>Тип бота</label>
+        <select id="constrType"></select>
+      </div>
+      <div class="constructor-item">
+        <label>Сложность</label>
+        <select id="constrComplexity"></select>
+      </div>
+      <div class="constructor-item">
+        <label>Интеграции</label>
+        <select id="constrIntegration"></select>
+      </div>
+      <div class="constructor-result" id="constrResult">
+        <span>Стоимость: </span><strong id="constrPrice">0 ₽</strong>
+      </div>
+      <button class="order-btn" onclick="contactMe()">Заказать бота</button>
+    </div>
+  </div>
+
+  <!-- ПОРТФОЛИО (расширенное) -->
   <div id="page-portfolio" class="page">
     <h2 style="margin-bottom:16px;">📁 Портфолио</h2>
     <div class="case">
       <div class="title">Стоматология "Улыбка"</div>
-      <div class="desc">Бот для записи на приём с выбором услуги, врача и времени. Автоматическое подтверждение.</div>
+      <div class="desc">Бот для записи на приём с выбором услуги, врача и времени. Автоматическое подтверждение. Более 200 записей в месяц.</div>
     </div>
     <div class="case">
       <div class="title">Салон красоты "Шарм"</div>
-      <div class="desc">Бот с каталогом услуг, записью к мастерам, онлайн-оплатой.</div>
+      <div class="desc">Бот с каталогом услуг, записью к мастерам, онлайн-оплатой. Рост продаж на 30%.</div>
     </div>
     <div class="case">
       <div class="title">Автосервис "Техно"</div>
-      <div class="desc">Бот для записи на диагностику и ремонт, выбор мастера и времени.</div>
+      <div class="desc">Бот для записи на диагностику и ремонт, выбор мастера и времени. Сократил время ответа на 80%.</div>
     </div>
     <div class="case">
       <div class="title">Цветочный магазин "Букет"</div>
-      <div class="desc">Бот с каталогом букетов, корзиной и оформлением заказа.</div>
+      <div class="desc">Бот с каталогом букетов, корзиной и оформлением заказа. Увеличил средний чек на 25%.</div>
+    </div>
+    <div class="case">
+      <div class="title">Юридическая консультация "Право"</div>
+      <div class="desc">Бот для записи на консультацию, загрузки документов и получения предварительного расчёта.</div>
     </div>
     <button class="order-btn" onclick="contactMe()">Заказать такой же бот</button>
   </div>
 
-  <!-- ОТЗЫВЫ -->
+  <!-- ОТЗЫВЫ (расширенные) -->
   <div id="page-reviews" class="page">
     <h2 style="margin-bottom:16px;">⭐ Отзывы клиентов</h2>
     <div class="review">
       <div class="author">Анна, стоматология "Улыбка"</div>
-      <div class="text">Бот окупился за месяц, теперь 60% записей через него. Клиенты довольны!</div>
+      <div class="text">Бот окупился за месяц, теперь 60% записей через него. Клиенты довольны, администратор разгружен.</div>
     </div>
     <div class="review">
       <div class="author">Игорь, автосервис "Техно"</div>
-      <div class="text">Раньше теряли клиентов, теперь бот записывает даже ночью. Рекомендую!</div>
+      <div class="text">Раньше теряли клиентов из-за долгой обработки, теперь бот записывает даже ночью. Рекомендую!</div>
     </div>
     <div class="review">
       <div class="author">Марина, салон красоты "Шарм"</div>
       <div class="text">Бот сделал запись удобной, добавили онлайн-оплату — продажи выросли на 30%.</div>
     </div>
+    <div class="review">
+      <div class="author">Ольга, цветочный магазин "Букет"</div>
+      <div class="text">Бот помогает оформлять заказы в 3 клика, клиенты возвращаются, удобно!</div>
+    </div>
     <button class="order-btn" onclick="contactMe()">Хочу такие же результаты</button>
   </div>
 
-  <!-- КОНТАКТЫ -->
-  <div id="page-contacts" class="page">
-    <h2 style="margin-bottom:16px;">📞 Свяжитесь с нами</h2>
-    <p style="opacity:0.7; margin-bottom:20px;">Напишите нам в Telegram, и мы ответим в течение 15 минут.</p>
-    <button class="order-btn" onclick="contactMe()">Написать в Telegram</button>
+  <!-- КАБИНЕТ (вместо Контакты) -->
+  <div id="page-cabinet" class="page">
+    <h2 style="margin-bottom:16px;">👤 Личный кабинет</h2>
+    <p style="opacity:0.7; margin-bottom:20px;">Войдите или зарегистрируйтесь, чтобы управлять заказами.</p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <button class="order-btn" style="flex:1;" onclick="contactMe()">Войти</button>
+      <button class="order-btn" style="flex:1; background:transparent; border:1px solid var(--tg-theme-button-color); color:var(--tg-theme-button-color);" onclick="contactMe()">Зарегистрироваться</button>
+    </div>
+    <div style="margin-top:20px; background:var(--tg-theme-secondary-bg-color, #1a1a24); border-radius:16px; padding:16px;">
+      <p style="font-weight:600; margin-bottom:8px;">📞 Связь с поддержкой</p>
+      <p style="opacity:0.7;">Напишите нам в Telegram, и мы ответим в течение 15 минут.</p>
+      <button class="order-btn" onclick="contactMe()">Написать в Telegram</button>
+    </div>
   </div>
 
   <!-- НИЖНЕЕ МЕНЮ -->
   <div class="bottom-nav">
     <div class="nav-item active" data-page="home"><span class="nav-icon">🏠</span>Главная</div>
     <div class="nav-item" data-page="bots"><span class="nav-icon">🤖</span>Боты</div>
+    <div class="nav-item" data-page="constructor"><span class="nav-icon">🛠️</span>Рассчитать</div>
     <div class="nav-item" data-page="portfolio"><span class="nav-icon">📁</span>Портфолио</div>
-    <div class="nav-item" data-page="reviews"><span class="nav-icon">⭐</span>Отзывы</div>
-    <div class="nav-item" data-page="contacts"><span class="nav-icon">📞</span>Контакты</div>
+    <div class="nav-item" data-page="cabinet"><span class="nav-icon">👤</span>Кабинет</div>
   </div>
 
   <script src="data.js"></script>
