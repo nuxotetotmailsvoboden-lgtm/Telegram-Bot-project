@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>BotMaker — создаём ботов для бизнеса</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Шапка -->
   <div class="header">
     <div class="logo">Bot<span>Maker</span></div>
     <div class="header-actions">
@@ -57,7 +57,8 @@
       </div>
     </div>
 
-    <div id="robotContainer"></div>
+    <!-- Статичная иконка вместо 3D-робота -->
+    <div style="text-align:center; margin: 20px 0; font-size: 64px; opacity:0.8;">🤖</div>
 
     <div class="stats">
       <div class="stat-item"><div class="number">200+</div><div class="label">готовых решений</div></div>
@@ -105,7 +106,7 @@
     </div>
   </div>
 
-  <!-- ПОРТФОЛИО (расширенное) -->
+  <!-- ПОРТФОЛИО -->
   <div id="page-portfolio" class="page">
     <h2 style="margin-bottom:16px;">📁 Портфолио</h2>
     <div class="case">
@@ -131,7 +132,7 @@
     <button class="order-btn" onclick="contactMe()">Заказать такой же бот</button>
   </div>
 
-  <!-- ОТЗЫВЫ (расширенные) -->
+  <!-- ОТЗЫВЫ -->
   <div id="page-reviews" class="page">
     <h2 style="margin-bottom:16px;">⭐ Отзывы клиентов</h2>
     <div class="review">
@@ -153,7 +154,7 @@
     <button class="order-btn" onclick="contactMe()">Хочу такие же результаты</button>
   </div>
 
-  <!-- КАБИНЕТ (вместо Контакты) -->
+  <!-- КАБИНЕТ -->
   <div id="page-cabinet" class="page">
     <h2 style="margin-bottom:16px;">👤 Личный кабинет</h2>
     <p style="opacity:0.7; margin-bottom:20px;">Войдите или зарегистрируйтесь, чтобы управлять заказами.</p>
@@ -178,7 +179,6 @@
   </div>
 
   <script src="data.js"></script>
-  <script src="robot.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
