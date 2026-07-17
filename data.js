@@ -62,7 +62,6 @@ const categories = {
   }
 };
 
-// Генерация времени с 09:00 до 18:00 с шагом 30 минут
 function generateSlots() {
   const slots = [];
   for (let h = 9; h <= 17; h++) {
@@ -75,11 +74,9 @@ function generateSlots() {
   return slots;
 }
 
-// Конфиг бота
 const BOT_USERNAME = 'Test69_t1_bot';
 const BOT_LINK = `https://t.me/${BOT_USERNAME}`;
 
-// Данные для конструктора (цены и опции)
 const constructorOptions = {
   type: ['Запись на услугу', 'Консультация', 'Продажа товара'],
   complexity: ['Простой', 'Средний', 'Сложный'],
