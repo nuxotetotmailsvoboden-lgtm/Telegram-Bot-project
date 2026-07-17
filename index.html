@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>BotMaker — создаём ботов для бизнеса</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <div class="header">
+    <div class="logo">Bot<span>Maker</span></div>
+    <div class="header-actions">
+      <button class="btn btn-outline" onclick="contactMe()">Связаться</button>
+    </div>
+  </div>
+
+  <!-- ===== СТРАНИЦЫ ===== -->
+  <!-- ГЛАВНАЯ -->
+  <div id="page-home" class="page active">
+    <div class="hero">
+      <h1>Создаём Telegram-ботов<br><span>которые работают вместо сотрудников</span></h1>
+      <p>Автоматизация, продажи, рост — под ключ.</p>
+      <div class="btn-group">
+        <button class="btn" onclick="contactMe()">Рассчитать стоимость</button>
+        <button class="btn btn-secondary" onclick="navigateTo('bots')">Смотреть демо</button>
+      </div>
+    </div>
+
+    <div class="section-title">Готовые решения</div>
+    <div class="grid-2col">
+      <div class="card" onclick="navigateTo('portfolio')">
+        <span class="emoji">📁</span>
+        <div class="label">Портфолио</div>
+        <div class="desc">Наши работы и кейсы</div>
+      </div>
+      <div class="card" onclick="navigateTo('reviews')">
+        <span class="emoji">⭐</span>
+        <div class="label">Отзывы клиентов</div>
+        <div class="desc">Реальные отзывы</div>
+      </div>
+      <div class="card" onclick="navigateTo('bots')">
+        <span class="emoji">🤖</span>
+        <div class="label">Демо-боты</div>
+        <div class="desc">Попробуйте вживую</div>
+      </div>
+      <div class="card" onclick="contactMe()">
+        <span class="emoji">🎁</span>
+        <div class="label">Акции и бонусы</div>
+        <div class="desc">Скидки и подарки</div>
+      </div>
+    </div>
+
+    <!-- 3D РОБОТ -->
+    <div id="robotContainer"></div>
+
+    <div class="stats">
+      <div class="stat-item"><div class="number">200+</div><div class="label">готовых решений</div></div>
+      <div class="stat-item"><div class="number">1000+</div><div class="label">довольных клиентов</div></div>
+      <div class="stat-item"><div class="number">50+</div><div class="label">функций в боте</div></div>
+      <div class="stat-item"><div class="number">24/7</div><div class="label">поддержка</div></div>
+    </div>
+  </div>
+
+  <!-- БОТЫ -->
+  <div id="page-bots" class="page">
+    <div id="botsList">
+      <h2 style="margin-bottom:16px;">🤖 Выберите бота для демо</h2>
+      <div class="bots-grid" id="botsGrid"></div>
+    </div>
+    <div id="botDemo" class="hidden">
+      <button class="back-btn" id="backToBotsList">‹ Назад</button>
+      <div id="demoTitle" style="font-size:20px; font-weight:700; margin-bottom:12px;"></div>
+      <div class="demo-chat" id="demoChat"></div>
+      <button class="order-btn" onclick="contactMe()">🔥 Заказать такого бота</button>
+    </div>
+  </div>
+
+  <!-- ПОРТФОЛИО -->
+  <div id="page-portfolio" class="page">
+    <h2 style="margin-bottom:16px;">📁 Портфолио</h2>
+    <div class="case">
+      <div class="title">Стоматология "Улыбка"</div>
+      <div class="desc">Бот для записи на приём с выбором услуги, врача и времени. Автоматическое подтверждение.</div>
+    </div>
+    <div class="case">
+      <div class="title">Салон красоты "Шарм"</div>
+      <div class="desc">Бот с каталогом услуг, записью к мастерам, онлайн-оплатой.</div>
+    </div>
+    <div class="case">
+      <div class="title">Автосервис "Техно"</div>
+      <div class="desc">Бот для записи на диагностику и ремонт, выбор мастера и времени.</div>
+    </div>
+    <div class="case">
+      <div class="title">Цветочный магазин "Букет"</div>
+      <div class="desc">Бот с каталогом букетов, корзиной и оформлением заказа.</div>
+    </div>
+    <button class="order-btn" onclick="contactMe()">Заказать такой же бот</button>
+  </div>
+
+  <!-- ОТЗЫВЫ -->
+  <div id="page-reviews" class="page">
+    <h2 style="margin-bottom:16px;">⭐ Отзывы клиентов</h2>
+    <div class="review">
+      <div class="author">Анна, стоматология "Улыбка"</div>
+      <div class="text">Бот окупился за месяц, теперь 60% записей через него. Клиенты довольны!</div>
+    </div>
+    <div class="review">
+      <div class="author">Игорь, автосервис "Техно"</div>
+      <div class="text">Раньше теряли клиентов, теперь бот записывает даже ночью. Рекомендую!</div>
+    </div>
+    <div class="review">
+      <div class="author">Марина, салон красоты "Шарм"</div>
+      <div class="text">Бот сделал запись удобной, добавили онлайн-оплату — продажи выросли на 30%.</div>
+    </div>
+    <button class="order-btn" onclick="contactMe()">Хочу такие же результаты</button>
+  </div>
+
+  <!-- КОНТАКТЫ -->
+  <div id="page-contacts" class="page">
+    <h2 style="margin-bottom:16px;">📞 Свяжитесь с нами</h2>
+    <p style="opacity:0.7; margin-bottom:20px;">Напишите нам в Telegram, и мы ответим в течение 15 минут.</p>
+    <button class="order-btn" onclick="contactMe()">Написать в Telegram</button>
+  </div>
+
+  <!-- НИЖНЕЕ МЕНЮ -->
+  <div class="bottom-nav">
+    <div class="nav-item active" data-page="home"><span class="nav-icon">🏠</span>Главная</div>
+    <div class="nav-item" data-page="bots"><span class="nav-icon">🤖</span>Боты</div>
+    <div class="nav-item" data-page="portfolio"><span class="nav-icon">📁</span>Портфолио</div>
+    <div class="nav-item" data-page="reviews"><span class="nav-icon">⭐</span>Отзывы</div>
+    <div class="nav-item" data-page="contacts"><span class="nav-icon">📞</span>Контакты</div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="robot.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
